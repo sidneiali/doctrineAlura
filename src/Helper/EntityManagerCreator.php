@@ -48,8 +48,12 @@ class EntityManagerCreator
         );
 
         $conn = [
-            'driver' => 'pdo_sqlite',
-            'path' => __DIR__ . '/../../db.sqlite',
+            'driver' => 'pdo_mysql',
+            'host' => 'localhost',
+            'post' => '3306',
+            'dbname' => 'students',
+            'user' => 'root',
+            'password' => 'root',
         ];
 
         $connection = DriverManager::getConnection($conn, $config);
