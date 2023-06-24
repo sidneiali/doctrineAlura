@@ -36,4 +36,5 @@ foreach ($studentList as $student) {
 }
 
 $dql = "SELECT COUNT(student) FROM $studentClass student";
-echo $entityManager->createQuery($dql)->getSingleScalarResult() . PHP_EOL;
+$query = $entityManager->createQuery($dql)->enableResultCache(86400);
+echo $query->getSingleScalarResult() . PHP_EOL;
