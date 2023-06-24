@@ -10,10 +10,8 @@ require_once __DIR__ . '/../vendor/autoload.php';
 $entityManager = EntityManagerCreator::createEntityManager();
 
 $studentClass = Student::class;
-$dql = "SELECT student FROM $studentClass student";
-
-/** @var Student[] $studentList */
-$studentList = $entityManager->createQuery($dql)->getResult();
+$studentRepository = $entityManager->getRepository(Student::class);
+$studentList = $studentRepository->studentsAndCourses();
 
 foreach ($studentList as $student) {
     echo "ID: $student->id\nNome: $student->name";
